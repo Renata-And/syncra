@@ -1,6 +1,9 @@
 import { BaseCard } from '@/common/components/BaseCard/BaseCard'
 import { CustomButton } from '@/common/components/Button/CustomButton'
 import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+
+import Register from './pages/Authorization/RegisterPage'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -15,6 +18,19 @@ function App() {
       <BaseCard>
         <p>Hello</p>
       </BaseCard>
+      <Router>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/register">Register</Link>
+            </li>
+          </ul>
+        </nav>
+
+        <Routes>
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Router>
     </div>
   )
 }
