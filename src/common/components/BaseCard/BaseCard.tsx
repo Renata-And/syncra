@@ -3,7 +3,7 @@ type Props = {
   radius?: 'sm' | 'md' | 'lg'
 }
 
-export const Card = (props: Props) => {
+export const BaseCard = (props: Props) => {
   const { children, radius } = props
 
   const baseClasses = `border border-border`

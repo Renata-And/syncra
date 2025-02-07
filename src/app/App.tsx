@@ -1,6 +1,6 @@
-import { CustomButton } from '../common/Button/CustomButton'
-import { Card } from '../common/Card/Card'
-import ThemeToggle from '../features/ThemeToogle/ThemeToggle'
+import { BaseCard } from '@/common/components/BaseCard/BaseCard'
+import { CustomButton } from '@/common/components/Button/CustomButton'
+import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
 
 function App() {
   // const [count, setCount] = useState(0)
@@ -12,9 +12,9 @@ function App() {
       <CustomButton variant="outlined" padding="lg">
         Name name
       </CustomButton>
-      <Card>
+      <BaseCard>
         <p>Hello</p>
-      </Card>
+      </BaseCard>
     </div>
   )
 }

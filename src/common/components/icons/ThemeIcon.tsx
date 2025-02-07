@@ -20,9 +20,9 @@ export const ThemeIcon = ({ width, height, color }: ThemeIconProps) => {
         />
         <path
           stroke={color ? color : 'currentColor'}
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1.5"
           d="M12 21.25a9.25 9.25 0 0 0 0-18.5m0 18.5a9.25 9.25 0 0 1 0-18.5m0 18.5V2.75"
         />
       </g>

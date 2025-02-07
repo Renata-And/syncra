@@ -1,6 +1,6 @@
 import { Switch } from '@headlessui/react'
-import { ThemeIcon } from '../../components/icons/ThemeIcon'
 import { useTheme } from './useTheme'
+import { ThemeIcon } from '../icons/ThemeIcon'
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme()
@@ -8,7 +8,7 @@ const ThemeToggle = () => {
   return (
     <div className="flex items-center space-x-3">
       {theme === 'light' ? <ThemeIcon color="#667085" /> : <ThemeIcon color="#6c6ce1" />}
-      <span className="w-24 text-sm font-medium text-secondary dark:text-primary-dark">
+      <span className="w-24 text-sm font-medium text-text-secondary dark:text-primary-dark">
         {isDark ? 'Светлая тема' : 'Тёмная тема'}
       </span>
       <Switch
@@ -25,7 +25,7 @@ const ThemeToggle = () => {
           className={`pointer-events-none inline-block size-5 translate-x-0 rounded-full 
                       bg-blend-color-dodge ring-0 shadow-lg transition duration-200 
                       ease-in-out group-data-[checked]:translate-x-7
-                      ${isDark ? 'bg-white' : 'bg-secondary'}
+                      ${isDark ? 'bg-white' : 'bg-text-secondary'}
                     `}
         />
       </Switch>
