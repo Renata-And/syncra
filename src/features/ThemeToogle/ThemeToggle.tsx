@@ -1,5 +1,5 @@
 import { Switch } from '@headlessui/react'
-import { ThemeIcon } from '../../assets/images/ThemeIcon'
+import { ThemeIcon } from '../../components/icons/ThemeIcon'
 import { useTheme } from './useTheme'
 
 const ThemeToggle = () => {
