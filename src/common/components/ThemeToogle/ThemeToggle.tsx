@@ -1,6 +1,6 @@
-import { Switch } from '@headlessui/react'
-import { useTheme } from './useTheme'
+import BaseToggle from '../BaseSwitch'
 import { ThemeIcon } from '../icons/ThemeIcon'
+import { useTheme } from './useTheme'
 
 const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme()
@@ -11,24 +11,12 @@ const ThemeToggle = () => {
       <span className="w-24 text-sm font-medium text-text-secondary dark:text-primary-dark">
         {isDark ? 'Светлая тема' : 'Тёмная тема'}
       </span>
-      <Switch
+      <BaseToggle
         checked={isDark}
         onChange={toggleTheme}
-        className={`group relative flex h-7 w-14 cursor-pointer rounded-full 
-                    p-1 transition-colors duration-200 ease-in-out focus:outline-none
-                    data-[focus]:outline-1 data-[focus]:outline-white 
-                    ${isDark ? 'bg-primary-dark' : 'bg-light-purple'}
-                  `}
-      >
-        <span
-          aria-hidden="true"
-          className={`pointer-events-none inline-block size-5 translate-x-0 rounded-full 
-                      bg-blend-color-dodge ring-0 shadow-lg transition duration-200 
-                      ease-in-out group-data-[checked]:translate-x-7
-                      ${isDark ? 'bg-white' : 'bg-text-secondary'}
-                    `}
-        />
-      </Switch>
+        className={isDark ? 'bg-white' : 'bg-text-secondary'}
+        thumbClassName={isDark ? 'bg-white' : 'bg-text-secondary'}
+      />
     </div>
   )
 }
