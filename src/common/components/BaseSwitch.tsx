@@ -3,21 +3,21 @@ import { Switch } from '@headlessui/react'
 type BaseSwitchProps = {
   checked: boolean
   onChange: (checked: boolean) => void
-  className?: string
+  bgClassName?: string
   thumbClassName?: string
 }
 
 const BaseSwitch = ({
   checked,
   onChange,
-  className = '',
+  bgClassName = '',
   thumbClassName = '',
 }: BaseSwitchProps) => {
   return (
     <Switch
       checked={checked}
       onChange={onChange}
-      className={`group relative flex h-7 w-14 cursor-pointer rounded-full p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white ${className}`}
+      className={`group relative flex h-7 w-14 cursor-pointer rounded-full p-1 transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white ${bgClassName}`}
     >
       <span
         aria-hidden="true"

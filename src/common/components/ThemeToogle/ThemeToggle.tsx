@@ -14,7 +14,7 @@ const ThemeToggle = () => {
       <BaseToggle
         checked={isDark}
         onChange={toggleTheme}
-        className={isDark ? 'bg-white' : 'bg-text-secondary'}
+        bgClassName={isDark ? 'bg-primary-dark' : 'bg-light-purple'}
         thumbClassName={isDark ? 'bg-white' : 'bg-text-secondary'}
       />
     </div>
