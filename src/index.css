@@ -13,17 +13,19 @@
 
   --color-primary: #5959ff;
   --color-primary-hover: #4536f5;
-  --color-primary-disabled: ;
+  --color-primary-disabled: #757fff;
 
   --color-primary-dark: #6c6ce1;
   --color-primary-dark-hover: #5247bb;
-  --color-primary-dark-disabled: ;
+  --color-primary-dark-disabled: #aeb9f3;
 
   --color-text-main: #0d1117;
   --color-text-secondary: #667085;
   --color-text-muted: #d0d5dd;
 
   --color-card-border: #d0d5dd;
+  --color-card-border-dark: #302e32;
+  --color-card-background: #222222;
 
   --font-klein: Klein, sans-serif;
 }
