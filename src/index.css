@@ -4,15 +4,27 @@
 
 @theme {
   --color-*: initial;
+
+  --color-white: #ffffff;
+  --color-light-purple: #f2f2ff;
+
+  --color-light-bg: #ffffff;
+  --color-dark-bg: #121212;
+
   --color-primary: #5959ff;
   --color-primary-hover: #4536f5;
+
   --color-primary-dark: #6c6ce1;
   --color-primary-dark-hover: #5247bb;
+
   --color-secondary: #667085;
 
   --color-foreground: #667085;
-  --color-text-white: #fff;
   --color-text-dark: #0d1117;
+
+  --color-text-gray: #d0d5dd;
+  --color-text-gray-dark: #667085;
+
   --color-border: #d0d5dd;
 
   --font-klein: Klein, sans-serif;
