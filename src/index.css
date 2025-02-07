@@ -11,6 +11,9 @@
   --color-light-bg: #ffffff;
   --color-dark-bg: #121212;
 
+  --color-dark-stroke: #302e32;
+  --color-stroke: #ced4da;
+
   --color-primary: #5959ff;
   --color-primary-hover: #4536f5;
   --color-primary-disabled: ;
