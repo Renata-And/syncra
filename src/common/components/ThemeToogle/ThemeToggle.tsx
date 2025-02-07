@@ -1,4 +1,4 @@
-import BaseToggle from '../BaseSwitch'
+import { BaseSwitch } from '../BaseSwitch'
 import { ThemeIcon } from '../icons/ThemeIcon'
 import { useTheme } from './useTheme'
 
@@ -11,7 +11,7 @@ const ThemeToggle = () => {
       <span className="w-24 text-sm font-medium text-text-secondary dark:text-primary-dark">
         {isDark ? 'Светлая тема' : 'Тёмная тема'}
       </span>
-      <BaseToggle
+      <BaseSwitch
         checked={isDark}
         onChange={toggleTheme}
         bgClassName={isDark ? 'bg-primary-dark' : 'bg-light-purple'}
