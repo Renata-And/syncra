@@ -9,7 +9,7 @@ function App() {
   // const [count, setCount] = useState(0)
 
   return (
-    <div className="font-klein bg-light-bg dark:bg-dark-bg">
+    <div className="font-klein min-h-screen flex items-center justify-center border-light-bg dark:bg-dark-bg">
       <ThemeToggle />
       <CustomButton variant="primary">Name</CustomButton>
       <CustomButton variant="outlined" padding="lg">

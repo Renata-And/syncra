@@ -6,10 +6,11 @@ type Props = {
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   padding?: 'sm' | 'md' | 'lg'
   onClick?: React.MouseEventHandler<HTMLButtonElement>
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export const CustomButton = (props: Props) => {
-  const { children, variant = 'primary', radius, padding = 'md', onClick } = props
+  const { children, variant = 'primary', radius, padding = 'md', onClick, type = 'button' } = props
 
   const baseClasses = 'font-medium duration-100'
   const variantClasses =
@@ -36,7 +37,7 @@ export const CustomButton = (props: Props) => {
   const buttonClasses = `${baseClasses} ${variantClasses} ${radiusClasses} ${paddingClasses}`
 
   return (
-    <Button className={buttonClasses} onClick={onClick}>
+    <Button className={buttonClasses} onClick={onClick} type={type}>
       {children}
     </Button>
   )
