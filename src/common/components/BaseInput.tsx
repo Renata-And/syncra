@@ -9,7 +9,7 @@ type BaseInputProps = {
   type?: string
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   padding?: 'sm' | 'md' | 'lg'
-  value?: string
+  name?: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   required?: boolean
   disabled?: boolean
@@ -26,7 +26,7 @@ export const BaseInput = (props: BaseInputProps) => {
     type = 'text',
     radius = '2xl',
     padding = 'md',
-    value,
+    name,
     onChange,
     required = false,
     disabled = false,
@@ -71,7 +71,7 @@ export const BaseInput = (props: BaseInputProps) => {
       <Input
         type={type}
         placeholder={placeholder}
-        value={value}
+        name={name}
         onChange={onChange}
         required={required}
         disabled={disabled}
