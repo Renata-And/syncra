@@ -2,6 +2,7 @@ import BaseCheckbox from '@/common/components/BaseCheckbox'
 import { BaseInput } from '@/common/components/BaseInput'
 import { CustomButton } from '@/common/components/Button/CustomButton'
 import MainIcon from '@/common/components/icons/MainIcon'
+import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
 import { useState } from 'react'
 
 type FormData = {
@@ -34,10 +35,18 @@ const RegisterForm = () => {
     console.log('Form Data:', formData)
   }
 
+  const { theme } = useThemeContext()
+  const isDark = theme === 'dark'
+
   return (
     <div className="flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between">
-        <MainIcon />
+        {isDark ? (
+          <MainIcon colorIcon="#121212" colorText="white" />
+        ) : (
+          <MainIcon colorIcon="white" colorText="#0D1117" />
+        )}
+
         <h2 className="text-xl text-text-secondary dark:text-primary">Регистрация</h2>
       </div>
       <div>
