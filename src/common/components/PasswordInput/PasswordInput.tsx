@@ -1,5 +1,5 @@
 import { Field, Input, Label } from '@headlessui/react'
-import { useState } from 'react'
+import { ChangeEventHandler, useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
 
 type PasswordInputProps = {
@@ -8,6 +8,7 @@ type PasswordInputProps = {
   name?: string
   label?: string
   placeholder?: string
+  onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 export const PasswordInput = (props: PasswordInputProps) => {
