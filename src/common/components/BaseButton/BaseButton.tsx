@@ -2,12 +2,12 @@ import { Button } from '@headlessui/react'
 
 type Props = {
   children: React.ReactNode
+  type?: 'button' | 'reset' | 'submit'
   variant?: 'primary' | 'outlined'
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   padding?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
-  type?: 'button' | 'submit' | 'reset'
 }
 
 export const BaseButton = (props: Props) => {
@@ -47,7 +47,7 @@ export const BaseButton = (props: Props) => {
   const buttonClasses = `${baseClasses} ${variantClasses} ${radiusClasses} ${paddingClasses}`
 
   return (
-    <Button className={buttonClasses} onClick={onClick} disabled={disabled} type={type}>
+    <Button type={type} onClick={onClick} disabled={disabled} className={buttonClasses}>
       {children}
     </Button>
   )
