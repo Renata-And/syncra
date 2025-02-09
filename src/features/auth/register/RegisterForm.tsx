@@ -1,7 +1,8 @@
+import { BaseButton } from '@/common/components/BaseButton/BaseButton'
 import BaseCheckbox from '@/common/components/BaseCheckbox'
-import { BaseInput } from '@/common/components/BaseInput'
-import { CustomButton } from '@/common/components/Button/CustomButton'
+import { BaseInput } from '@/common/components/BaseInput/BaseInput'
 import MainIcon from '@/common/components/icons/MainIcon'
+import { PasswordInput } from '@/common/components/PasswordInput/PasswordInput'
 import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
 import { useState } from 'react'
 
@@ -53,25 +54,12 @@ const RegisterForm = () => {
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-4">
             <BaseInput placeholder="Никнейм" name={formData.username} onChange={handleChange} />
-            <BaseInput
-              placeholder="Почта"
-              type="email"
-              name={formData.email}
-              onChange={handleChange}
-            />
-            <BaseInput
-              placeholder="Пароль"
-              type="password"
-              name={formData.password}
-              onChange={handleChange}
-              required
-            />
-            <BaseInput
+            <BaseInput placeholder="Почта" name={formData.email} onChange={handleChange} />
+            <PasswordInput placeholder="Пароль" name={formData.password} onChange={handleChange} />
+            <PasswordInput
               placeholder="Повторите пароль"
-              type="password"
               name={formData.confirmPassword}
               onChange={handleChange}
-              required
             />
             <div className="flex items-center py-4">
               <BaseCheckbox
@@ -87,8 +75,8 @@ const RegisterForm = () => {
                 }
               />
             </div>
-            <CustomButton type="submit">Зарегистрироваться</CustomButton>
-            <CustomButton variant="outlined">Войти в существующий аккаунт</CustomButton>
+            <BaseButton>Зарегистрироваться</BaseButton>
+            <BaseButton variant="outlined">Войти в существующий аккаунт</BaseButton>
           </div>
         </form>
       </div>
