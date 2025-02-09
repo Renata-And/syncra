@@ -38,7 +38,7 @@ export const BaseInput = (props: BaseInputProps) => {
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        className={`relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0 ring ring-card-border dark:ring-card-border-dark text-text-main dark:text-white  bg-light-bg dark:bg-card-background focus:ring-2 focus:ring-card-border dark:focus:ring-card-border-dark placeholder-text-secondary ${variantClasses} ${className}`}
+        className={`relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0 ring ring-card-border dark:ring-card-border-dark text-text-main dark:text-white  bg-light-bg dark:bg-card-background focus:ring-2 focus:ring-card-border dark:focus:ring-card-border-dark placeholder-text-secondary ${variantClasses} ${className} ${error && 'ring-2 ring-error'}`}
       />
       {error && <span className="text-xs text-error absolute right-0 -bottom-4">{error}</span>}
     </Field>

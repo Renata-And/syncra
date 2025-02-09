@@ -23,11 +23,11 @@ const BaseCheckbox = ({
       checked={checked}
       onChange={onChange}
       className={`group block size-6 rounded-md border bg-white/10 p-1 ring-1 ring-white/15 ring-inset data-[checked]:bg-white
-      ${boxClassName}`}
+      ${boxClassName} ${error && 'border-error'}`}
     >
       <Check className={`hidden size-4 fill-black group-data-[checked]:block ${iconClassName}`} />
     </Checkbox>
-    <Label>{label}</Label>
+    <Label className={`${error && 'text-error'}`}>{label}</Label>
     {error && <span className="text-xs text-error absolute right-0 -bottom-4">{error}</span>}
   </Field>
 )
