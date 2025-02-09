@@ -7,10 +7,19 @@ type Props = {
   padding?: 'sm' | 'md' | 'lg'
   disabled?: boolean
   onClick?: React.MouseEventHandler<HTMLButtonElement>
+  type?: 'button' | 'submit' | 'reset'
 }
 
 export const BaseButton = (props: Props) => {
-  const { children, variant = 'primary', radius, padding = 'md', onClick, disabled } = props
+  const {
+    children,
+    variant = 'primary',
+    radius,
+    padding = 'md',
+    onClick,
+    disabled,
+    type = 'button',
+  } = props
 
   const baseClasses =
     'font-medium duration-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:focus-visible:outline-primary-dark'
@@ -38,7 +47,7 @@ export const BaseButton = (props: Props) => {
   const buttonClasses = `${baseClasses} ${variantClasses} ${radiusClasses} ${paddingClasses}`
 
   return (
-    <Button className={buttonClasses} onClick={onClick} disabled={disabled}>
+    <Button className={buttonClasses} onClick={onClick} disabled={disabled} type={type}>
       {children}
     </Button>
   )

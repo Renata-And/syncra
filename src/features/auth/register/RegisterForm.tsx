@@ -40,7 +40,7 @@ const RegisterForm = () => {
   const isDark = theme === 'dark'
 
   return (
-    <div className="flex flex-col items-center gap-y-20">
+    <div className="min-w-[350px] flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
@@ -50,7 +50,7 @@ const RegisterForm = () => {
 
         <h2 className="text-xl text-text-secondary dark:text-primary">Регистрация</h2>
       </div>
-      <div>
+      <div className="w-full">
         <form onSubmit={handleSubmit}>
           <div className="flex flex-col space-y-4">
             <BaseInput placeholder="Никнейм" name={formData.username} onChange={handleChange} />
@@ -75,14 +75,17 @@ const RegisterForm = () => {
                 }
               />
             </div>
-            <BaseButton>Зарегистрироваться</BaseButton>
+            <BaseButton type="submit">Зарегистрироваться</BaseButton>
             <BaseButton variant="outlined">Войти в существующий аккаунт</BaseButton>
           </div>
         </form>
       </div>
       <div className="text-center">
         <span className="text-sm text-text-main dark:text-white">
-          Контакт поддержки: @tg.channel
+          Контакт поддержки:{' '}
+          <a href="#">
+            <span className="text-sm text-primary dark:text-primary-dark">@tg.channel</span>
+          </a>
         </span>
       </div>
     </div>

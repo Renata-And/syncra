@@ -1,6 +1,6 @@
 import { Field, Input, Label } from '@headlessui/react'
-import { ChangeEventHandler, useState } from 'react'
 import { Eye, EyeOff } from 'lucide-react'
+import { useState } from 'react'
 
 type PasswordInputProps = {
   size?: 'sm' | 'md'
@@ -8,11 +8,11 @@ type PasswordInputProps = {
   name?: string
   label?: string
   placeholder?: string
-  onChange?: ChangeEventHandler<HTMLInputElement>
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const PasswordInput = (props: PasswordInputProps) => {
-  const { className, label = '', name = '', size = 'sm', placeholder } = props
+  const { className, label = '', name = '', size = 'sm', placeholder, onChange } = props
   const [isShow, setIsShow] = useState(false)
 
   const variantClasses = size === 'sm' ? 'rounded-lg px-3 py-2' : 'rounded-2xl px-4 py-3'
@@ -25,6 +25,7 @@ export const PasswordInput = (props: PasswordInputProps) => {
         name={name}
         type={isShow ? 'text' : 'password'}
         placeholder={placeholder}
+        onChange={onChange}
       />
       <button
         onClick={() => setIsShow((prev) => !prev)}
