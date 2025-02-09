@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/common/components/ThemeToogle/ThemeProvider'
 import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import Login from './pages/Login'
@@ -30,41 +31,43 @@ import AdminProfile from './pages/panel/Profile'
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col gap-y-10 items-center justify-center border-light-bg dark:bg-dark-bg">
-      <ThemeToggle />
-      <Router>
-        <Routes>
-          <Route
-            path="/login"
-            element={<Login />}
-            // element={isAuthenticated() ? <Navigate to="/admin/dashboard" replace /> : <Login />}
-          />
-          <Route path="/register" element={<Register />} />
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col items-center justify-evenly border-light-bg dark:bg-dark-bg">
+        <ThemeToggle />
+        <Router>
+          <Routes>
+            <Route
+              path="/login"
+              element={<Login />}
+              // element={isAuthenticated() ? <Navigate to="/admin/dashboard" replace /> : <Login />}
+            />
+            <Route path="/register" element={<Register />} />
 
-          <Route
-            path="/panel"
-            element={
-              <AdminDashboard />
-              // <ProtectedRoute>
-              //   <AdminDashboard />
-              // </ProtectedRoute>
-            }
-          >
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="profile" element={<AdminProfile />} />
-            <Route path="deals" element={<AdminDeals />} />
-            <Route path="deal/:id" element={<AdminDeal />} />
-            <Route path="payout" element={<AdminPayout />} />
-            <Route path="finance" element={<AdminFinance />} />
-            <Route path="orders" element={<AdminOrders />} />
-            <Route path="orders/:id" element={<AdminOrder />} />
-          </Route>
+            <Route
+              path="/panel"
+              element={
+                <AdminDashboard />
+                // <ProtectedRoute>
+                //   <AdminDashboard />
+                // </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="profile" element={<AdminProfile />} />
+              <Route path="deals" element={<AdminDeals />} />
+              <Route path="deal/:id" element={<AdminDeal />} />
+              <Route path="payout" element={<AdminPayout />} />
+              <Route path="finance" element={<AdminFinance />} />
+              <Route path="orders" element={<AdminOrders />} />
+              <Route path="orders/:id" element={<AdminOrder />} />
+            </Route>
 
-          <Route path="/" element={<Login />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
-    </div>
+            <Route path="/" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </div>
+    </ThemeProvider>
   )
 }
 

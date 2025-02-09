@@ -1,4 +1,4 @@
-import LoginForm from '@/common/auth/reqister/LoginForm'
+import LoginForm from '@/features/auth/LoginForm'
 
 const Login = () => {
   return (
