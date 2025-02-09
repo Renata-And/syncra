@@ -1,45 +1,71 @@
-import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
-
-import { BaseButton } from '@/common/components/BaseButton/BaseButton'
-import { BaseCard } from '@/common/components/BaseCard/BaseCard'
 import { ThemeProvider } from '@/common/components/ThemeToogle/ThemeProvider'
-import { Counter } from '@/features/counter/Counter'
-import Register from './pages/Authorization/RegisterPage'
+import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import Login from './pages/Login'
+import NotFound from './pages/NotFound'
+import Register from './pages/Register'
+import AdminDashboard from './pages/panel/Dashboard'
+import AdminDeal from './pages/panel/Deal'
+import AdminDeals from './pages/panel/Deals'
+import AdminFinance from './pages/panel/Finance'
+import AdminOrder from './pages/panel/Order'
+import AdminOrders from './pages/panel/Orders'
+import AdminPayout from './pages/panel/Payout'
+import AdminProfile from './pages/panel/Profile'
+
+// interface ProtectedRouteProps {
+//   children: React.ReactElement
+// }
+
+// const isAuthenticated = (): boolean => {
+//   const token = localStorage.getItem('token')
+//   return !!token
+// }
+
+// const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
+//   if (!isAuthenticated()) {
+//     return <Navigate to="/login" replace />
+//   }
+//   return children
+// }
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <ThemeProvider>
-      <div className="font-klein min-h-screen flex items-center justify-center border-light-bg dark:bg-dark-bg text-main-black dark:text-white">
-        <div className="flex flex-col items-center gap-3">
-          <Router>
-            <nav>
-              <ul>
-                <li className="hover:text-primary dark:hover:text-primary-dark duration-100">
-                  <Link to="/register">Register</Link>
-                </li>
-              </ul>
-            </nav>
+      <div className="min-h-screen flex flex-col items-center justify-evenly border-light-bg dark:bg-dark-bg">
+        <ThemeToggle />
+        <Router>
+          <Routes>
+            <Route
+              path="/login"
+              element={<Login />}
+              // element={isAuthenticated() ? <Navigate to="/admin/dashboard" replace /> : <Login />}
+            />
+            <Route path="/register" element={<Register />} />
 
-            <Routes>
-              <Route path="/register" element={<Register />} />
-            </Routes>
-          </Router>
+            <Route
+              path="/panel"
+              element={
+                <AdminDashboard />
+                // <ProtectedRoute>
+                //   <AdminDashboard />
+                // </ProtectedRoute>
+              }
+            >
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="profile" element={<AdminProfile />} />
+              <Route path="deals" element={<AdminDeals />} />
+              <Route path="deal/:id" element={<AdminDeal />} />
+              <Route path="payout" element={<AdminPayout />} />
+              <Route path="finance" element={<AdminFinance />} />
+              <Route path="orders" element={<AdminOrders />} />
+              <Route path="orders/:id" element={<AdminOrder />} />
+            </Route>
 
-          <Counter />
-          <ThemeToggle />
-          <BaseButton variant="primary">Name</BaseButton>
-          <BaseButton variant="outlined" padding="lg">
-            Name
-          </BaseButton>
-          <BaseCard>
-            <div className="p-6">
-              <p>Hello</p>
-            </div>
-          </BaseCard>
-        </div>
+            <Route path="/" element={<Login />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
       </div>
     </ThemeProvider>
   )

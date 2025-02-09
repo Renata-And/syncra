@@ -30,7 +30,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className="flex flex-col items-center gap-y-20">
+    <div className="min-w-[350px] flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
@@ -104,7 +104,10 @@ const RegisterForm = () => {
       </div>
       <div className="text-center">
         <span className="text-sm text-text-main dark:text-white">
-          Контакт поддержки: @tg.channel
+          Контакт поддержки:{' '}
+          <a href="#">
+            <span className="text-sm text-primary dark:text-primary-dark">@tg.channel</span>
+          </a>
         </span>
       </div>
     </div>
