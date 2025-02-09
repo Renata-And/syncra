@@ -11,28 +11,32 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div className="font-klein min-h-screen flex items-center justify-center border-light-bg dark:bg-dark-bg">
-        <ThemeToggle />
-        <CustomButton variant="primary">Name</CustomButton>
-        <CustomButton variant="outlined" padding="lg">
-          Name name
-        </CustomButton>
-        <BaseCard>
-          <p>Hello</p>
-        </BaseCard>
-        <Router>
-          <nav>
-            <ul>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            </ul>
-          </nav>
+      <div className="font-klein min-h-screen flex items-center justify-center border-light-bg dark:bg-dark-bg text-main-black dark:text-white">
+        <div className="flex flex-col items-center gap-3">
+          <Router>
+            <nav>
+              <ul>
+                <li className="hover:text-primary dark:hover:text-primary-dark duration-100">
+                  <Link to="/register">Register</Link>
+                </li>
+              </ul>
+            </nav>
 
-          <Routes>
-            <Route path="/register" element={<Register />} />
-          </Routes>
-        </Router>
+            <Routes>
+              <Route path="/register" element={<Register />} />
+            </Routes>
+          </Router>
+          <ThemeToggle />
+          <CustomButton variant="primary">Name</CustomButton>
+          <CustomButton variant="outlined" padding="lg">
+            Name
+          </CustomButton>
+          <BaseCard>
+            <div className="p-6">
+              <p>Hello</p>
+            </div>
+          </BaseCard>
+        </div>
       </div>
     </ThemeProvider>
   )
