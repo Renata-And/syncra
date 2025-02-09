@@ -1,4 +1,4 @@
-import RegisterForm from '@/entities/auth/register/RegisterForm'
+import RegisterForm from '@/features/auth/register/RegisterForm'
 
 const Register = () => {
   return (
