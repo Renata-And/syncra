@@ -2,6 +2,7 @@ import { Button } from '@headlessui/react'
 
 type Props = {
   children: React.ReactNode
+  type?: 'button' | 'reset' | 'submit'
   variant?: 'primary' | 'outlined'
   radius?: 'none' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl'
   padding?: 'sm' | 'md' | 'lg'
@@ -10,7 +11,15 @@ type Props = {
 }
 
 export const BaseButton = (props: Props) => {
-  const { children, variant = 'primary', radius, padding = 'md', onClick, disabled } = props
+  const {
+    children,
+    variant = 'primary',
+    radius,
+    padding = 'md',
+    onClick,
+    disabled,
+    type = 'button',
+  } = props
 
   const baseClasses =
     'font-medium duration-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary dark:focus-visible:outline-primary-dark'
@@ -38,7 +47,7 @@ export const BaseButton = (props: Props) => {
   const buttonClasses = `${baseClasses} ${variantClasses} ${radiusClasses} ${paddingClasses}`
 
   return (
-    <Button className={buttonClasses} onClick={onClick} disabled={disabled}>
+    <Button type={type} onClick={onClick} disabled={disabled} className={buttonClasses}>
       {children}
     </Button>
   )

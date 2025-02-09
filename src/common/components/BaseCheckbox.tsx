@@ -7,6 +7,7 @@ type BaseCheckboxProps = {
   onChange: (checked: boolean) => void
   boxClassName?: string
   iconClassName?: string
+  error?: string
 }
 
 const BaseCheckbox = ({
@@ -15,8 +16,9 @@ const BaseCheckbox = ({
   onChange,
   boxClassName,
   iconClassName,
+  error,
 }: BaseCheckboxProps) => (
-  <Field className="flex items-center gap-2">
+  <Field className="w-full flex items-center gap-2 relative">
     <Checkbox
       checked={checked}
       onChange={onChange}
@@ -26,6 +28,7 @@ const BaseCheckbox = ({
       <Check className={`hidden size-4 fill-black group-data-[checked]:block ${iconClassName}`} />
     </Checkbox>
     <Label>{label}</Label>
+    {error && <span className="text-xs text-error absolute right-0 -bottom-4">{error}</span>}
   </Field>
 )
 

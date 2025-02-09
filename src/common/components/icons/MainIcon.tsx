@@ -15,7 +15,7 @@ export const MainIcon = (props: Main) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g xmlns="http://www.w3.org/2000/svg" clip-path="url(#clip0_231_2749)">
+      <g xmlns="http://www.w3.org/2000/svg" clipPath="url(#clip0_231_2749)">
         <mask
           id="mask0_231_2749"
           style={{ maskType: 'luminance' }}

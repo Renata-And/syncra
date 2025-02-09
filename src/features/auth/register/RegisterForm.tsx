@@ -4,7 +4,7 @@ import { BaseInput } from '@/common/components/BaseInput/BaseInput'
 import MainIcon from '@/common/components/icons/MainIcon'
 import { PasswordInput } from '@/common/components/PasswordInput/PasswordInput'
 import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
-import { useState } from 'react'
+import { Controller, useForm } from 'react-hook-form'
 
 type FormData = {
   username: string
@@ -15,29 +15,19 @@ type FormData = {
 }
 
 const RegisterForm = () => {
-  const [formData, setFormData] = useState<FormData>({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    agreeToTerms: false,
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, type, checked } = e.target
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : name,
-    })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form Data:', formData)
-  }
-
   const { theme } = useThemeContext()
   const isDark = theme === 'dark'
+
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm<FormData>()
+
+  const onSubmit = (data: FormData) => {
+    console.log(data)
+  }
 
   return (
     <div className="flex flex-col items-center gap-y-20">
@@ -51,31 +41,63 @@ const RegisterForm = () => {
         <h2 className="text-xl text-text-secondary dark:text-primary">Регистрация</h2>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col space-y-4">
-            <BaseInput placeholder="Никнейм" name={formData.username} onChange={handleChange} />
-            <BaseInput placeholder="Почта" name={formData.email} onChange={handleChange} />
-            <PasswordInput placeholder="Пароль" name={formData.password} onChange={handleChange} />
+            <BaseInput
+              {...register('username', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.username?.message}
+              placeholder="Никнейм"
+            />
+            <BaseInput
+              placeholder="Почта"
+              {...register('email', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.email?.message}
+            />
+            <PasswordInput
+              placeholder="Пароль"
+              {...register('password', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.password?.message}
+            />
             <PasswordInput
               placeholder="Повторите пароль"
-              name={formData.confirmPassword}
-              onChange={handleChange}
+              {...register('confirmPassword', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.confirmPassword?.message}
             />
             <div className="flex items-center py-4">
-              <BaseCheckbox
-                checked={formData.agreeToTerms}
-                onChange={(checked) => setFormData({ ...formData, agreeToTerms: checked })}
-                label={
-                  <span>
-                    Я согласен с{' '}
-                    <a href="#" className="">
-                      правилами пользования
-                    </a>
-                  </span>
-                }
+              <Controller
+                name="agreeToTerms"
+                control={control}
+                rules={{ required: 'Поле обязательно' }}
+                render={({ field }) => (
+                  <BaseCheckbox
+                    {...field}
+                    checked={field.value}
+                    error={errors.agreeToTerms?.message}
+                    label={
+                      <span>
+                        Я согласен с{' '}
+                        <a href="#" className="">
+                          правилами пользования
+                        </a>
+                      </span>
+                    }
+                  />
+                )}
               />
             </div>
-            <BaseButton>Зарегистрироваться</BaseButton>
+            <BaseButton type="submit">Зарегистрироваться</BaseButton>
             <BaseButton variant="outlined">Войти в существующий аккаунт</BaseButton>
           </div>
         </form>
