@@ -101,8 +101,12 @@ const RegisterForm = () => {
                 )}
               />
             </div>
-            <BaseButton type="submit">Зарегистрироваться</BaseButton>
-            <BaseButton variant="outlined">Войти в существующий аккаунт</BaseButton>
+            <BaseButton type="submit" padding="md">
+              Зарегистрироваться
+            </BaseButton>
+            <BaseButton variant="outlined" padding="md">
+              Войти в существующий аккаунт
+            </BaseButton>
           </div>
         </form>
       </div>
