@@ -2,7 +2,7 @@ import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
 import { BaseCard } from '@/common/components/BaseCard/BaseCard'
-import { CustomButton } from '@/common/components/Button/CustomButton'
+import { BaseButton } from '@/common/components/BaseButton/BaseButton'
 import { ThemeProvider } from '@/common/components/ThemeToogle/ThemeProvider'
 import Register from './pages/Authorization/RegisterPage'
 
@@ -27,10 +27,10 @@ function App() {
             </Routes>
           </Router>
           <ThemeToggle />
-          <CustomButton variant="primary">Name</CustomButton>
-          <CustomButton variant="outlined" padding="lg">
+          <BaseButton variant="primary">Name</BaseButton>
+          <BaseButton variant="outlined" padding="lg">
             Name
-          </CustomButton>
+          </BaseButton>
           <BaseCard>
             <div className="p-6">
               <p>Hello</p>
