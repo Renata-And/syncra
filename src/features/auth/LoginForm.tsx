@@ -4,7 +4,7 @@ import { PasswordInput } from '@/common/components/PasswordInput/PasswordInput'
 
 import MainIcon from '@/common/components/icons/MainIcon'
 import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
-import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 
 type FormData = {
   username: string
@@ -15,25 +15,14 @@ type FormData = {
 }
 
 const LoginForm = () => {
-  const [formData, setFormData] = useState<FormData>({
-    username: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    agreeToTerms: false,
-  })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>()
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, type, checked } = e.target
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : name,
-    })
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form Data:', formData)
+  const onSubmit = (data: FormData) => {
+    console.log(data)
   }
 
   const { theme } = useThemeContext()
@@ -41,7 +30,7 @@ const LoginForm = () => {
 
   return (
     <div className="min-w-[350px] flex flex-col items-center gap-y-20">
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between items-center">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
         ) : (
@@ -51,11 +40,27 @@ const LoginForm = () => {
         <h2 className="text-xl text-text-secondary dark:text-primary">Авторизация</h2>
       </div>
       <div className="w-full">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col space-y-4">
-            <BaseInput placeholder="Почта" name={formData.email} onChange={handleChange} />
-            <PasswordInput placeholder="Пароль" name={formData.password} onChange={handleChange} />
-            <div className="flex items-center py-4">
+            <BaseInput
+              placeholder="Почта"
+              {...register('email', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.email?.message}
+              size="md"
+            />
+            <PasswordInput
+              placeholder="Пароль"
+              {...register('password', {
+                required: 'Поле обязательно',
+                minLength: { value: 6, message: 'Мин. 6 символов' },
+              })}
+              error={errors.password?.message}
+              size="md"
+            />
+            <div className="flex items-center justify-center mb-4">
               <a href="#">
                 <span className="text-sm text-primary dark:text-primary-dark">Забыли пароль?</span>
               </a>

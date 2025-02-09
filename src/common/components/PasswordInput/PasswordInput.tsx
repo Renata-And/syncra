@@ -33,7 +33,7 @@ export const PasswordInput = (props: PasswordInputProps) => {
 
   return (
     <Field className="relative flex flex-col gap-2">
-      <Label className="text-text-main dark:text-text-secondary">{label}</Label>
+      {label && <Label className="text-text-main dark:text-text-secondary">{label}</Label>}
       <Input
         ref={ref}
         name={name}

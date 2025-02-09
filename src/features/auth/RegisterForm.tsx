@@ -31,7 +31,7 @@ const RegisterForm = () => {
 
   return (
     <div className="min-w-[350px] flex flex-col items-center gap-y-20">
-      <div className="w-full flex justify-between">
+      <div className="w-full flex justify-between items-center">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
         ) : (
@@ -50,6 +50,7 @@ const RegisterForm = () => {
               })}
               error={errors.username?.message}
               placeholder="Никнейм"
+              size="md"
             />
             <BaseInput
               placeholder="Почта"
@@ -58,6 +59,7 @@ const RegisterForm = () => {
                 minLength: { value: 6, message: 'Мин. 6 символов' },
               })}
               error={errors.email?.message}
+              size="md"
             />
             <PasswordInput
               placeholder="Пароль"
@@ -66,6 +68,7 @@ const RegisterForm = () => {
                 minLength: { value: 6, message: 'Мин. 6 символов' },
               })}
               error={errors.password?.message}
+              size="md"
             />
             <PasswordInput
               placeholder="Повторите пароль"
@@ -74,6 +77,7 @@ const RegisterForm = () => {
                 minLength: { value: 6, message: 'Мин. 6 символов' },
               })}
               error={errors.confirmPassword?.message}
+              size="md"
             />
             <div className="flex items-center py-4">
               <Controller
