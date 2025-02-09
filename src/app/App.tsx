@@ -1,9 +1,10 @@
 import ThemeToggle from '@/common/components/ThemeToogle/ThemeToggle'
 import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 
-import { BaseCard } from '@/common/components/BaseCard/BaseCard'
 import { BaseButton } from '@/common/components/BaseButton/BaseButton'
+import { BaseCard } from '@/common/components/BaseCard/BaseCard'
 import { ThemeProvider } from '@/common/components/ThemeToogle/ThemeProvider'
+import { Counter } from '@/features/counter/Counter'
 import Register from './pages/Authorization/RegisterPage'
 
 function App() {
@@ -26,6 +27,8 @@ function App() {
               <Route path="/register" element={<Register />} />
             </Routes>
           </Router>
+
+          <Counter />
           <ThemeToggle />
           <BaseButton variant="primary">Name</BaseButton>
           <BaseButton variant="outlined" padding="lg">
