@@ -2,6 +2,7 @@ import { BaseButton } from '@/common/components/BaseButton/BaseButton'
 import BaseCheckbox from '@/common/components/BaseCheckbox'
 import { BaseInput } from '@/common/components/BaseInput/BaseInput'
 import MainIcon from '@/common/components/icons/MainIcon'
+import { PasswordIndicator } from '@/common/components/PasswordIndicator'
 import { PasswordInput } from '@/common/components/PasswordInput/PasswordInput'
 import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
 import { Controller, useForm } from 'react-hook-form'
@@ -22,12 +23,23 @@ const RegisterForm = () => {
     register,
     handleSubmit,
     control,
+    watch,
     formState: { errors },
   } = useForm<FormData>()
 
   const onSubmit = (data: FormData) => {
     console.log(data)
   }
+
+  const getPasswordStrength = (password: string) => {
+    if (password.length < 6) return 'weak'
+    if (password.length < 10) return 'medium'
+    return 'strong'
+  }
+
+  const password = watch('password', '')
+
+  const strength = getPasswordStrength(password)
 
   return (
     <div className="max-w-[350px] flex flex-col items-center gap-y-20">
@@ -79,6 +91,7 @@ const RegisterForm = () => {
               error={errors.confirmPassword?.message}
               size="md"
             />
+            <PasswordIndicator strength={strength} />
             <div className="flex items-center py-4">
               <Controller
                 name="agreeToTerms"
