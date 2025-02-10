@@ -1,11 +1,10 @@
 type Props = {
   children: React.ReactNode
   radius?: 'sm' | 'md' | 'lg'
+  className?: string
 }
 
-export const BaseCard = (props: Props) => {
-  const { children, radius } = props
-
+export const BaseCard = ({ children, radius, className }: Props) => {
   const baseClasses =
     'border border-card-border dark:border-card-border-dark bg-light-bg dark:bg-card-background'
 
@@ -14,7 +13,6 @@ export const BaseCard = (props: Props) => {
     md: 'rounded-[16px]',
     lg: 'rounded-[24px]',
   }[radius || 'md']
-  const cardClasses = `${baseClasses} ${radiusClasses}`
 
-  return <div className={cardClasses}>{children}</div>
+  return <div className={`${baseClasses} ${radiusClasses} ${className}`}>{children}</div>
 }

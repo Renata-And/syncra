@@ -12,6 +12,9 @@ import AdminOrder from './pages/panel/Order'
 import AdminOrders from './pages/panel/Orders'
 import AdminPayout from './pages/panel/Payout'
 import AdminProfile from './pages/panel/Profile'
+import { LabelInfo } from '@/common/components/LabelInfo/LabelInfo'
+import { Status } from '@/common/components/Status/Status'
+import { BaseCard } from '@/common/components/BaseCard/BaseCard'
 
 // interface ProtectedRouteProps {
 //   children: React.ReactElement
@@ -66,6 +69,26 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
+        <LabelInfo type="less">Меньше, чем вчера на 12 %</LabelInfo>
+        <LabelInfo type="more">Меньше, чем вчера на 12 %</LabelInfo>
+        <LabelInfo type="more" size="sm">
+          Больше, чем вчера на 12 %
+        </LabelInfo>
+        <BaseCard className="p-4 flex flex-col gap-2">
+          <Status type="active">Активен</Status>
+          <Status type="canceled">Активен</Status>
+          <Status type="completed">Активен</Status>
+          <Status type="inProgress">Активен</Status>
+          <Status type="active" size="sm">
+            Активен
+          </Status>
+          <Status type="canceled" size="sm">
+            Активен
+          </Status>
+          <Status type="inProgress" size="sm">
+            Активен
+          </Status>
+        </BaseCard>
       </div>
     </ThemeProvider>
   )

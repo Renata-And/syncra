@@ -1,5 +1,5 @@
 import { BaseButton } from '@/common/components/BaseButton/BaseButton'
-import BaseCheckbox from '@/common/components/BaseCheckbox'
+import BaseCheckbox from '@/common/components/BaseCheckbox/BaseCheckbox'
 import { BaseInput } from '@/common/components/BaseInput/BaseInput'
 import MainIcon from '@/common/components/icons/MainIcon'
 import { PasswordIndicator } from '@/common/components/PasswordIndicator'
@@ -23,12 +23,14 @@ const RegisterForm = () => {
     register,
     handleSubmit,
     control,
+    reset,
     watch,
     formState: { errors },
   } = useForm<FormData>()
 
   const onSubmit = (data: FormData) => {
     console.log(data)
+    reset()
   }
 
   const getPasswordStrength = (password: string) => {
