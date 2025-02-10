@@ -65,10 +65,10 @@ const LoginForm = () => {
                 <span className="text-sm text-primary dark:text-primary-dark">Забыли пароль?</span>
               </a>
             </div>
-            <BaseButton type="submit" padding="md">
+            <BaseButton type="submit" padding="lg">
               Войти
             </BaseButton>
-            <BaseButton variant="outlined" padding="md">
+            <BaseButton variant="outlined" padding="lg">
               Зарегистрироваться
             </BaseButton>
           </div>
