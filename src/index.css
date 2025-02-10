@@ -6,7 +6,7 @@
   --color-*: initial;
 
   --color-white: #ffffff;
-  --color-main-black: #0D1117;
+  --color-main-black: #0d1117;
   --color-light-purple: #f2f2ff;
 
   --color-light-bg: #ffffff;
@@ -31,7 +31,15 @@
   --color-card-border-dark: #302e32;
   --color-card-background: #222222;
 
-  --color-error: #D92D20
+  --color-error: #d92d20;
+  --color-completed: #d0f1c9;
+  --color-text-completed: #0b8d51;
+  --color-canceled: #ffdad3;
+  --color-active: #dbffd3;
+  --color-dark-active: #282e27;
+  --color-less-label: #dc3545;
+  --color-dark-bg-less: #2c201e;
+  --color-dark-bg-more: #222230;
 
   --font-klein: Klein, sans-serif;
 }
