@@ -30,7 +30,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className="min-w-[350px] flex flex-col items-center gap-y-20">
+    <div className="max-w-[350px] flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between items-center">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
@@ -90,7 +90,7 @@ const RegisterForm = () => {
                     checked={field.value}
                     error={errors.agreeToTerms?.message}
                     label={
-                      <span>
+                      <span className="text-text-main dark:text-text-secondary">
                         Я согласен с{' '}
                         <a href="#" className="">
                           правилами пользования
@@ -111,7 +111,7 @@ const RegisterForm = () => {
         </form>
       </div>
       <div className="text-center">
-        <span className="text-sm text-text-main dark:text-white">
+        <span className="text-sm text-text-main dark:text-text-secondary">
           Контакт поддержки:{' '}
           <a href="#">
             <span className="text-sm text-primary dark:text-primary-dark">@tg.channel</span>
