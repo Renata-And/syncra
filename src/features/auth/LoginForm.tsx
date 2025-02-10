@@ -29,7 +29,7 @@ const LoginForm = () => {
   const isDark = theme === 'dark'
 
   return (
-    <div className="min-w-[350px] flex flex-col items-center gap-y-20">
+    <div className="max-w-[350px] flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between items-center">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
@@ -75,7 +75,7 @@ const LoginForm = () => {
         </form>
       </div>
       <div className="text-center">
-        <span className="text-sm text-text-main dark:text-white">
+        <span className="text-sm text-text-main dark:text-text-secondary">
           Контакт поддержки:{' '}
           <a href="#">
             <span className="text-sm text-primary dark:text-primary-dark">@tg.channel</span>

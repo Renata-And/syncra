@@ -40,6 +40,8 @@
   --color-less-label: #dc3545;
   --color-dark-bg-less: #2c201e;
   --color-dark-bg-more: #222230;
+  --color-warning: #dca80c;
+  --color-succsess: #0b8d51;
 
   --font-klein: Klein, sans-serif;
 }

@@ -2,6 +2,7 @@ import { BaseButton } from '@/common/components/BaseButton/BaseButton'
 import BaseCheckbox from '@/common/components/BaseCheckbox/BaseCheckbox'
 import { BaseInput } from '@/common/components/BaseInput/BaseInput'
 import MainIcon from '@/common/components/icons/MainIcon'
+import { PasswordIndicator } from '@/common/components/PasswordIndicator'
 import { PasswordInput } from '@/common/components/PasswordInput/PasswordInput'
 import { useThemeContext } from '@/common/components/ThemeToogle/useThemeContext'
 import { Controller, useForm } from 'react-hook-form'
@@ -23,6 +24,7 @@ const RegisterForm = () => {
     handleSubmit,
     control,
     reset,
+    watch,
     formState: { errors },
   } = useForm<FormData>()
 
@@ -31,8 +33,18 @@ const RegisterForm = () => {
     reset()
   }
 
+  const getPasswordStrength = (password: string) => {
+    if (password.length < 6) return 'weak'
+    if (password.length < 10) return 'medium'
+    return 'strong'
+  }
+
+  const password = watch('password', '')
+
+  const strength = getPasswordStrength(password)
+
   return (
-    <div className="min-w-[350px] flex flex-col items-center gap-y-20">
+    <div className="max-w-[350px] flex flex-col items-center gap-y-20">
       <div className="w-full flex justify-between items-center">
         {isDark ? (
           <MainIcon colorIcon="#121212" colorText="white" />
@@ -81,6 +93,7 @@ const RegisterForm = () => {
               error={errors.confirmPassword?.message}
               size="md"
             />
+            <PasswordIndicator strength={strength} />
             <div className="flex items-center py-4">
               <Controller
                 name="agreeToTerms"
@@ -92,7 +105,7 @@ const RegisterForm = () => {
                     checked={field.value}
                     error={errors.agreeToTerms?.message}
                     label={
-                      <span>
+                      <span className="text-text-main dark:text-text-secondary">
                         Я согласен с{' '}
                         <a href="#" className="">
                           правилами пользования
@@ -113,7 +126,7 @@ const RegisterForm = () => {
         </form>
       </div>
       <div className="text-center">
-        <span className="text-sm text-text-main dark:text-white">
+        <span className="text-sm text-text-main dark:text-text-secondary">
           Контакт поддержки:{' '}
           <a href="#">
             <span className="text-sm text-primary dark:text-primary-dark">@tg.channel</span>
