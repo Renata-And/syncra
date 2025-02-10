@@ -1,4 +1,4 @@
-import { BaseSwitch } from '../BaseSwitch'
+import { BaseSwitch } from '../BaseSwitch/BaseSwitch'
 import { ThemeIcon } from '../icons/ThemeIcon'
 import { useThemeContext } from './useThemeContext'
 

@@ -41,7 +41,7 @@ export const PasswordInput = (props: PasswordInputProps) => {
         onBlur={onBlur}
         type={isShow ? 'text' : 'password'}
         placeholder={placeholder}
-        className={`relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0 ring ring-card-border dark:ring-card-border-dark text-text-main dark:text-white bg-light-bg dark:bg-card-background focus:ring-2 focus:ring-card-border dark:focus:ring-card-border-dark placeholder-text-secondary ${variantClasses} ${className}`}
+        className={`relative block w-full disabled:cursor-not-allowed disabled:opacity-75 focus:outline-none border-0 ring ring-card-border dark:ring-card-border-dark text-text-main dark:text-white bg-light-bg dark:bg-card-background focus:ring-2 focus:ring-card-border dark:focus:ring-card-border-dark placeholder-text-secondary ${variantClasses} ${className ? className : ''}`}
       />
       <button
         onClick={() => setIsShow((prev) => !prev)}
